@@ -56,7 +56,7 @@ void deletesrc(int src){
 }
 void delsrc(){
         int i;
-        printf("\n\tThe topologically sorted elements are:: \n");
+        printf("\n\tThe topologically sorted elements are:: \n\n\t");
         for(i=0; i<10; i++){
                 if(indegree[i] == 0){
                         deletesrc(i+1);
