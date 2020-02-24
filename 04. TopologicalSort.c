@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int visited[10], connection[10][10],s1[10], top1, s2[10], top2;
+int n, visited[10], connection[10][10],s1[10], top1, s2[10], top2, indegree[10];
 
 void connect(int i, int j){
         if(i>10 || j>10){
@@ -10,6 +10,7 @@ void connect(int i, int j){
         }
         printf("\n\tConnecting %d with %d", i, j);
         connection[i-1][j-1] = 1;
+        indegree[j-1] += 1;
 }
 
 void dfs(int src){
