@@ -80,16 +80,17 @@ int main(){
         connect(3,4);
         connect(4,5);
         */   
-        n=5;    
-        dfs(2);  
-        printf("\n\n\tThe DFS Topological traversal is::\n\n\t");  
-        for(i=top2-1; i>-1; i--)                                   
-                printf("%d ", s2[i]);                              
-        printf("\n\n\tThe visited list is:: \n\n\t");  
-        for(i=0; i<10; i++)                                    
-                printf("%d ", visited[i]);                     
-        printf("\n");                                         
-        delsrc();                                             
+        n=5;
+        dfs(2);
+        printf("\n\n\tThe DFS Topological traversal is::\n\n\t");
+        for(i=top2-1; i>-1; i--)
+                printf("%d ", s2[i]);
+        printf("\n\n\tThe visited list is:: \n\n\t");
+        for(i=0; i<10; i++)
+                printf("%d ", visited[i]);
+        printf("\n");
+        delsrc();
+        printf("\n\n");
         return 0;                                             
 } 
 
