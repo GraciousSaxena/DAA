@@ -35,6 +35,34 @@ void dfs(int src){
         }
 }
 
+void deletesrc(int src){
+        int i,j;
+        if(src>n)       return;
+        if(visited1[src-1] == 0){
+                visited1[src-1] = 1;
+                printf("%d ", src);
+                for(i=0; i<n; i++){
+                        if(connection[src-1][i] == 1){
+                                indegree[i] -= 1;
+                        }
+                }
+                for(i=0; i<n; i++){
+                        if(indegree[i] == 0 && visited1[i] == 0){
+                                deletesrc(i+1);
+                        }
+                }
+        }
+}
+void delsrc(){
+        int i;
+        printf("\n\tThe topologically sorted elements are:: \n");
+        for(i=0; i<10; i++){
+                if(indegree[i] == 0){
+                        deletesrc(i+1);
+                        return;
+                }
+        }
+}
 int main(){
         int i;
         connect(2,1);
@@ -44,14 +72,23 @@ int main(){
         connect(3,5);
         connect(4,3);
         connect(4,5);
+        /*
+        connect(1,2);
+        connect(2,4);
+        connect(1,3);
+        connect(3,4);
+        connect(4,5);
+        */   
+        n=5;    
+        dfs(2);  
+        printf("\n\n\tThe DFS Topological traversal is::\n\n\t");  
+        for(i=top2-1; i>-1; i--)                                   
+                printf("%d ", s2[i]);                              
+        printf("\n\n\tThe visited list is:: \n\n\t");  
+        for(i=0; i<10; i++)                                    
+                printf("%d ", visited[i]);                     
+        printf("\n");                                         
+        delsrc();                                             
+        return 0;                                             
+} 
 
-        dfs(2);
-        printf("\n\n\tThe DFS Topological traversal is::\n\n\t");
-        for(i=top2-1; i>-1; i--)
-                printf("%d ", s2[i]);
-        printf("\n\n\tThe visited list is:: \n\n\t");
-        for(i=0; i<10; i++)
-                printf("%d ", visited[i]);
-        printf("\n");
-        return 0;
-}
