@@ -71,5 +71,3 @@ int main(){
         }
         return 0;
 }
-                                                                                                                                                                           73,1          Bot
-
